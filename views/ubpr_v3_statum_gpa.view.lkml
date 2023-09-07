@@ -22,6 +22,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: aer_num1 {
+    label: "AER Outlook Rating"
     type: string
     sql: ${TABLE}.AER_NUM1 ;;
   }
@@ -37,6 +38,8 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: assetsize {
+    label: "Asset Size ($ 000s)"
+    value_format_name:usd
     type: number
     sql: ${TABLE}.ASSETSIZE ;;
   }
@@ -113,16 +116,19 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: financial_institution_city {
+    label: "City"
     type: string
     sql: ${TABLE}.Financial_Institution_City ;;
   }
 
   dimension: financial_institution_name {
+    label: "Name of Financial Institution"
     type: string
     sql: ${TABLE}.Financial_Institution_Name ;;
   }
 
   dimension: financial_institution_state {
+    label: "State"
     type: string
     sql: ${TABLE}.Financial_Institution_State ;;
   }
@@ -148,6 +154,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: idrssd {
+    label: "IDRSSD"
     type: number
     sql: ${TABLE}.IDRSSD ;;
   }
@@ -158,6 +165,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: label {
+    label: "Early Warning Rating"
     type: string
     sql: ${TABLE}.label ;;
   }
@@ -408,6 +416,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: roa_num1 {
+    label: "ROA Outlook Rating"
     type: string
     sql: ${TABLE}.ROA_NUM1 ;;
   }
@@ -418,6 +427,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: roe_num1 {
+    label: "ROE Outlook Rating"
     type: string
     sql: ${TABLE}.ROE_NUM1 ;;
   }
@@ -428,6 +438,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: rotce_num1 {
+    label: "ROTCE Outlook Rating"
     type: string
     sql: ${TABLE}.ROTCE_NUM1 ;;
   }
@@ -803,6 +814,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: t1_lr_num1 {
+    label: "T1LR Outlook Rating"
     type: string
     sql: ${TABLE}.T1LR_NUM1 ;;
   }
@@ -813,6 +825,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: tce_num1 {
+    label: "TCE Outlook Rating"
     type: string
     sql: ${TABLE}.TCE_NUM1 ;;
   }
@@ -1058,6 +1071,7 @@ view: ubpr_v3_statum_gpa {
   }
 
   dimension: ubpre088 {
+    label: "Efficiency Ratio (%)"
     type: number
     sql: ${TABLE}.UBPRE088 ;;
   }
@@ -1484,5 +1498,11 @@ view: ubpr_v3_statum_gpa {
   measure: count {
     type: count
     drill_fields: [financial_institution_name]
+  }
+
+  measure: Statum_GPA {
+    type: sum
+    precision: 1
+    sql: ${statum_gpa} ;;
   }
 }
