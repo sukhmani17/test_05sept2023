@@ -1495,6 +1495,49 @@ view: ubpr_v3_statum_gpa {
     type: string
     sql: ${TABLE}.wholesale_trade ;;
   }
+  dimension: sort {
+    case: {
+      when: {
+        sql: ${t1_lr} = "A+" ;;
+        label: "A"
+      }
+      when: {
+        sql: ${t1_lr} = "A" ;;
+        label: "B"
+      }
+      when: {
+        sql: ${t1_lr} = "A-" ;;
+        label: "C"
+      }
+      when: {
+        sql: ${t1_lr} = "B+" ;;
+        label: "D"
+      }
+      when: {
+        sql: ${t1_lr} = "B" ;;
+        label: "E"
+      }
+      when: {
+        sql: ${t1_lr} = "B-" ;;
+        label: "F"
+      }
+      when: {
+        sql: ${t1_lr} = "C+" ;;
+        label: "G"
+      }
+      when: {
+        sql: ${t1_lr} = "C" ;;
+        label: "H"
+      }
+      when: {
+        sql: ${t1_lr} = "C-" ;;
+        label: "I"
+      }
+
+      else: "unknown"
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [financial_institution_name]
@@ -1502,7 +1545,13 @@ view: ubpr_v3_statum_gpa {
 
   measure: Statum_GPA {
     type: sum
-    precision: 1
+    precision: 0
     sql: ${statum_gpa} ;;
+
   }
+   measure: t1lr_sum {
+     type: sum
+     sql: ${t1_lr_num1} ;;
+   }
+
 }
