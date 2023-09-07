@@ -14,3 +14,10 @@ datagroup: test_07aug2023_default_datagroup {
 
 persist_with: test_07aug2023_default_datagroup
 
+explore: ubpr_30082023 {}
+
+explore: ubpr_v1 {}
+
+explore: ubpr_v2 {}
+
+explore: ubpr_v3_statum_gpa {}
