@@ -1538,6 +1538,16 @@ view: ubpr_v3_statum_gpa {
     }
   }
 
+  dimension: Name_of_Financial_Institution2 {
+    type: string
+    sql: concat(${financial_institution_name}," , " ,${financial_institution_state} ," , ",${idrssd})  ;;
+  }
+
+  dimension: statum_alphabet_num {
+    type: string
+    sql: concat(${t1_lr},":",${t1_lr_num1} );;
+  }
+
   measure: count {
     type: count
     drill_fields: [financial_institution_name]
