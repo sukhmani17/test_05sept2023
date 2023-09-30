@@ -1563,5 +1563,17 @@ view: ubpr_v3_statum_gpa {
      type: sum
      sql: ${t1_lr_num1} ;;
    }
+  measure: Account {
+    label: "Account (Number)"
+    type: count_distinct
+    sql: ${customer_accounts_2019} ;;
+    sql_distinct_key: ${idrssd} ;;
+  }
 
+  measure: Software{
+    label: "Software ($ 000s)"
+    type: sum
+    sql: ifnull(${rcfdft33},0) +ifnull( ${rconft33},0);;
+
+}
 }

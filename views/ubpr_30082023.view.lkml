@@ -1450,4 +1450,10 @@ view: ubpr_30082023 {
     type: count
     drill_fields: [financial_institution_name]
   }
+
+  measure: Account {
+    type: count_distinct
+    sql: ${customer_accounts_2019} ;;
+    sql_distinct_key: ${idrssd} ;;
+  }
 }
